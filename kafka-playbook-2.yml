@@ -6,4 +6,4 @@
         msg: "Hello World!"
        
     - name: post to consul
-      shell: 'curl -X POST http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic -H 'content-type: application/vnd.kafka.json.v2+json' -d '{"records": [ {"key":"cisco-device","value": "is configured" }]}''
+      shell: "curl -X POST http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic -H 'content-type: application/vnd.kafka.json.v2+json' -d '{"records": [ {"key":"cisco-device","value": "is configured" }]}'"
