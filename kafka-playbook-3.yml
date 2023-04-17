@@ -8,4 +8,4 @@
          body: '{"records": [ {"key":"my-key","value": "cisco is now configured" }]}'
          headers:
            content-type: application/vnd.kafka.json.v2+json
-         register: result
+#         register: result
