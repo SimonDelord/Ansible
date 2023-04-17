@@ -1,0 +1,9 @@
+- name: Hello World Sample
+  hosts: all
+  tasks:
+    - name: Hello Message
+      debug:
+        msg: "Hello World!"
+       
+    - name: post to consul
+      shell: 'curl -X GET http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics'
