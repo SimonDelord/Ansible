@@ -10,7 +10,8 @@
          method: POST
          return_content: yes
 #         body: ' {"records": [ {"key":"my-key","value": "juniper is now configured" }]}'
-         body: ' {"records": [ {"key": "{{endpoint_a}}","value": "{{endpoint_b}}" }]}'
+#         body: ' {"records": [ {"key": "{{endpoint_a}}","value": "{{endpoint_b}}" }]}'
+         body: ' {"records": [ {"key": "location","value": "{{endpoint_a}}" }, {"key": "location","value": "{{endpoint_b}}" }]}'
          body_format: json
          headers:
            content-type: application/vnd.kafka.json.v2+json
