@@ -12,9 +12,10 @@
            {{
            {
            "records": {
-              endpoint_a,
-              endpoint_b,
-           }
+              endpoint_a: True,
+              endpoint_b: True,
+           },
+           "names": endpoint_a,
            }
            }}   
          body_format: json
