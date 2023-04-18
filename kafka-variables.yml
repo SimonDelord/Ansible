@@ -13,7 +13,7 @@
            {
            "records": "hello"
            },
-           "names": endpoint_a,
+           "names": endpoint_a
            }
            }}   
          body_format: json
