@@ -8,7 +8,8 @@
        uri:
          url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
          method: POST
-         body: "{ \"records\": \"{{ endpoint_a}}\" }"   
+         return_content: yes
+         body: "{ \"records\": \"mazeres\" }"   
          body_format: json
          headers:
            content-type: application/vnd.kafka.json.v2+json
