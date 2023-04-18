@@ -11,9 +11,7 @@
          body: >-
            {{
            {
-           "records": {
-              endpoint_a: True,
-              endpoint_b: True,
+           "records": "hello"
            },
            "names": endpoint_a,
            }
