@@ -10,9 +10,11 @@
          method: POST
          body: >-
          {{
+         {
          "records": {
             location_a: melbourne,
             location_b: sydney,
+         }
          }
          }}   
          body_format: json
