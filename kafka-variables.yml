@@ -11,12 +11,11 @@
          body: >-
            {{
            {
-           "records": "hello"
-           },
-           "names": endpoint_a
+           "records": "hello",
+           "names": endpoint_a,
            }
            }}   
-         body_format: json
+         body_format: "json"
          headers:
            content-type: application/vnd.kafka.json.v2+json
 #         register: result
