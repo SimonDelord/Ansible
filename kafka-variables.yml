@@ -12,8 +12,8 @@
            {{
            {
            "records": {
-              location_a: melbourne,
-              location_b: sydney,
+              endpoint_a: melbourne,
+              endpoint_b: sydney,
            }
            }
            }}   
