@@ -1,0 +1,14 @@
+- name: Publish to Kafka
+  hosts: all
+  vars:
+     endpoint_a: "melbourne"
+     endpoint_b: "sydney"
+  tasks:
+     - name: vpn provisioning
+       uri:
+         url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
+         method: POST
+         body: '{"records": [ {"key": {{endpoint_a}},"value": {{endpoint_b}} }]}'
+         headers:
+           content-type: application/vnd.kafka.json.v2+json
+#         register: result
