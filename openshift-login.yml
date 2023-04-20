@@ -1,4 +1,4 @@
-- name: Get access token  
+- name: log into openshift  
   k8s_auth:  
     username: cluster-admin
     password: id8cj-ru2s3-W4pa5-Qfrqo
