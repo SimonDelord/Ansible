@@ -31,7 +31,7 @@
          msg: "allez les verts"
          
      - name: connect to openshift
-       k8s_auth:
+       kubenetes.core.k8s_auth:
          username: cluster-admin
          password: id8cj-ru2s3-W4pa5-Qfrqo
          host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
