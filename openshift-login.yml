@@ -42,18 +42,18 @@
            metadata:
              name: web
              namespace: testing
-           labels:
-             app: galaxy
-             service: web
-         spec:
-           selector:
-             app: galaxy
-             service: web
-          ports:
-          - protocol: TCP
-            targetPort: 8000
-            name: port-8000-tcp
-            port: 8000
+             labels:
+               app: galaxy
+               service: web
+           spec:
+             selector:
+               app: galaxy
+               service: web
+             ports:
+             - protocol: TCP
+               targetPort: 8000
+               name: port-8000-tcp
+               port: 8000
    
          
 #     - name: connect to openshift
