@@ -19,9 +19,9 @@
  
 - name: Log into OpenShift
   hosts: all
-  vars:
-     token: "sha256~LGkFF6SBZi_FeYy6HkrzJ9jy9siS3BbY7kXJiMpiPIc"
-     cluster: "https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443"
+#  vars:
+#     token: "sha256~LGkFF6SBZi_FeYy6HkrzJ9jy9siS3BbY7kXJiMpiPIc"
+#     cluster: "https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443"
   collections: 
     - kubernetes.core
 #  plugin: kubernetes.core.k8s
@@ -36,8 +36,8 @@
          
      - name: Create a Service object from an inline definition
        kubernetes.core.k8s:
-         api_key: {{ token }}
-         host: {{ cluster }}
+         api_key: sha256~LGkFF6SBZi_FeYy6HkrzJ9jy9siS3BbY7kXJiMpiPIc
+         host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
          state: present
          definition:
            apiVersion: v1
@@ -60,8 +60,8 @@
    
      - name: Create the Melbourne
        kubernetes.core.k8s:
-         api_key: {{ token }}
-         host: {{ cluster }}
+         api_key: sha256~LGkFF6SBZi_FeYy6HkrzJ9jy9siS3BbY7kXJiMpiPIc
+         host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
          definition:
            apiVersion: apps/v1
            kind: Deployment
@@ -86,8 +86,8 @@
    
      - name: Create the Sydney
        kubernetes.core.k8s:
-         api_key: {{ token }}
-         host: {{ cluster }}
+         api_key: sha256~LGkFF6SBZi_FeYy6HkrzJ9jy9siS3BbY7kXJiMpiPIc
+         host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
          definition:
            apiVersion: apps/v1
            kind: Deployment
