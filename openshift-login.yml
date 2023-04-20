@@ -55,6 +55,54 @@
                name: port-8000-tcp
                port: 8000
    
+     - name: Create the Melbourne
+       kubernetes.core.k8s:
+         definition:
+           apiVersion: apps/v1
+           kind: Deployment
+           metadata:
+             name: router-melbourne
+           spec:
+             replicas: 1
+             selector:
+               matchLabels:
+                 app: router-melbourne
+             template:
+               metadata:
+                 labels:
+                   app: router-melbourne
+               spec:
+                 containers:
+                 - name: router-melbourne
+                   image: paulbouwer/hello-kubernetes:1.8
+                   ports:
+                   - containerPort: 8080
+   
+     - name: Create the Sydney
+       kubernetes.core.k8s:
+         definition:
+           apiVersion: apps/v1
+           kind: Deployment
+           metadata:
+             name: router-sydney
+           spec:
+             replicas: 1
+             selector:
+               matchLabels:
+                 app: router-sydney
+             template:
+               metadata:
+                 labels:
+                   app: router-sydney
+               spec:
+                 containers:
+                 - name: router-sydney
+                   image: paulbouwer/hello-kubernetes:1.8
+                   ports:
+                   - containerPort: 8080
+   
+   
+   
          
 #     - name: connect to openshift
 #       kubernetes.core.k8s_auth:
