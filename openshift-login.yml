@@ -1,7 +1,18 @@
-- name: log into openshift  
-  k8s_auth:  
-    username: cluster-admin
-    password: id8cj-ru2s3-W4pa5-Qfrqo
-    host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
-    validate_certs: true 
-  register: k8s_auth_results
+- name: Log into OpenShift
+  hosts: all
+  tasks:
+    - name: log into openshift
+    k8s_auth:  
+      username: cluster-admin
+      password: id8cj-ru2s3-W4pa5-Qfrqo
+      host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
+      validate_certs: true 
+    register: k8s_auth_results
+
+
+#- name: Hello World Sample
+#  hosts: all
+#  tasks:
+#    - name: Hello Message
+#      debug:
+#        msg: "Hello World!"
