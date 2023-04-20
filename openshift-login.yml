@@ -1,7 +1,7 @@
 - name: Log into OpenShift
-  hosts: localhost
-  module_defaults:
-    group/k8s:
+  hosts: all
+#  module_defaults:
+#    group/k8s:
   tasks:
      - name: Log in (obtain access token)
        k8s_auth:
@@ -17,13 +17,13 @@
        register: pod_list
 
  
-#- name: Publish to Kafka
-#  hosts: all
-#  tasks:
-#     - name: allo allo
-#       uri:
-#         url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
-#         method: POST
-#         body: '{"records": [ {"key":"my-key","value": "cisco is now configured" }]}'
-#         headers:
-#           content-type: application/vnd.kafka.json.v2+json
+- name: Publish to Kafka
+  hosts: all
+  tasks:
+     - name: allo allo
+       uri:
+         url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
+         method: POST
+         body: '{"records": [ {"key":"my-key","value": "cisco is now configured" }]}'
+         headers:
+           content-type: application/vnd.kafka.json.v2+json
