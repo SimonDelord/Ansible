@@ -41,7 +41,7 @@
            kind: Service
            metadata:
              name: web
-             namespace: testing
+             namespace: fuckoff
              labels:
                app: galaxy
                service: web
