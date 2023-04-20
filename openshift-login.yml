@@ -17,13 +17,12 @@
 #       register: pod_list
 
  
-- name: Publish to Kafka
+- name: Log into OpenShift
   hosts: all
   tasks:
-     - name: allo allo
-       uri:
-         url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
-         method: POST
-         body: '{"records": [ {"key":"my-key","value": "cisco is now configured" }]}'
-         headers:
-           content-type: application/vnd.kafka.json.v2+json
+     - name: connect to openshift
+       k8s_auth:
+         username: cluster-admin
+         password: id8cj-ru2s3-W4pa5-Qfrqo
+         host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
+       register: k8s_auth_results
