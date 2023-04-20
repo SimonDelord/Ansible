@@ -21,6 +21,7 @@
   hosts: localhost
   collections: 
     - kubernetes.core
+  plugin: kubernetes.core.k8s
   tasks:
      - name: debug message
        debug:
