@@ -43,7 +43,7 @@
 
      - name: Pause for 10 seconds for the router-a to come up
        pause:
-       seconds: 10
+         seconds: 10
 
      - name: Publish to Kafka router-a has come online
        uri:
@@ -82,7 +82,7 @@
   
      - name: Pause for 10 seconds for the router-b to come up
        pause:
-       seconds: 10
+         seconds: 10
 
      - name: Publish to Kafka router-a has come online
        uri:
