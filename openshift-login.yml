@@ -22,6 +22,10 @@
   collections: 
     - kubernetes.core
   tasks:
+     - name: debug message
+       debug:
+         msg: "allez les bleus"
+         
      - name: connect to openshift
        kubernetes.core.k8s_auth:
          username: cluster-admin
