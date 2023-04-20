@@ -18,7 +18,7 @@
 
  
 - name: Log into OpenShift
-  hosts: localhost
+  hosts: all
   collections: 
     - kubernetes.core
 #  plugin: kubernetes.core.k8s
