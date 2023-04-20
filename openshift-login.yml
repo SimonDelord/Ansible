@@ -19,6 +19,8 @@
  
 - name: Log into OpenShift
   hosts: all
+  collections: 
+    - community.kubernetes
   tasks:
      - name: connect to openshift
        kubernetes.core.k8s_auth:
