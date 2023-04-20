@@ -31,11 +31,36 @@
        debug:
          msg: "allez les verts"
          
-     - name: connect to openshift
-       kubernetes.core.k8s_auth:
-         username: cluster-admin
-         password: id8cj-ru2s3-W4pa5-Qfrqo
+     - name: Create a Service object from an inline definition
+       kubernetes.core.k8s:
+         api_key: sha256~LGkFF6SBZi_FeYy6HkrzJ9jy9siS3BbY7kXJiMpiPIc
          host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
-       register: k8s_auth_results
+         state: present
+         definition:
+           apiVersion: v1
+           kind: Service
+           metadata:
+             name: web
+             namespace: testing
+           labels:
+             app: galaxy
+             service: web
+         spec:
+           selector:
+             app: galaxy
+             service: web
+          ports:
+          - protocol: TCP
+            targetPort: 8000
+            name: port-8000-tcp
+            port: 8000
+   
+         
+#     - name: connect to openshift
+#       kubernetes.core.k8s_auth:
+#         username: cluster-admin
+#         password: id8cj-ru2s3-W4pa5-Qfrqo
+#         host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
+#       register: k8s_auth_results
 
 
