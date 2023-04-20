@@ -7,14 +7,7 @@
   collections: 
     - kubernetes.core
   tasks:
-     - name: debug message
-       debug:
-         msg: "checking it is ok"
-         
-     - name: do something else
-       debug:
-         msg: "it is ok"
-    - name: Publish to Kafka the beginning of the configuration
+     - name: Publish to Kafka the beginning of the configuration
        uri:
          url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
          method: POST
