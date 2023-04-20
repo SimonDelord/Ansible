@@ -42,7 +42,7 @@
                    - containerPort: 8080
 
      - name: Pause for 10 seconds for the router-a to come up
-       ansible.builtin.pause:
+       pause:
        seconds: 10
 
      - name: Publish to Kafka router-a has come online
@@ -81,7 +81,7 @@
                    - containerPort: 8080
   
      - name: Pause for 10 seconds for the router-b to come up
-       ansible.builtin.pause:
+       pause:
        seconds: 10
 
      - name: Publish to Kafka router-a has come online
