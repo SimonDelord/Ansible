@@ -14,7 +14,13 @@
      - name: do something else
        debug:
          msg: "it is ok"
-        
+    - name: Publish to Kafka the beginning of the configuration
+       uri:
+         url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
+         method: POST
+         body: '{"records": [ {"key":"my-key","value": "service is being configured" }]}'
+         headers:
+           content-type: application/vnd.kafka.json.v2+json        
    
      - name: Create the endpoint-a Router
        kubernetes.core.k8s:
@@ -41,6 +47,19 @@
                    image: paulbouwer/hello-kubernetes:1.8
                    ports:
                    - containerPort: 8080
+
+     - name: Pause for 10 seconds for the router-a to come up
+       ansible.builtin.pause:
+       seconds: 10
+
+     - name: Publish to Kafka router-a has come online
+       uri:
+         url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
+         method: POST
+         body: '{"records": [ {"key":"my-key","value": "endpoint-a is now configured" }]}'
+         headers:
+           content-type: application/vnd.kafka.json.v2+json        
+
    
      - name: Create the endpoint-b router
        kubernetes.core.k8s:
@@ -67,9 +86,20 @@
                    image: paulbouwer/hello-kubernetes:1.8
                    ports:
                    - containerPort: 8080
-   
+  
+     - name: Pause for 10 seconds for the router-b to come up
+       ansible.builtin.pause:
+       seconds: 10
+
+     - name: Publish to Kafka router-a has come online
+       uri:
+         url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
+         method: POST
+         body: '{"records": [ {"key":"my-key","value": "endpoint-b is now configured" }]}'
+         headers:
+           content-type: application/vnd.kafka.json.v2+json          
  
-     - name: Publish to Kafka the result
+     - name: Publish to Kafka the final result
        uri:
          url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
          method: POST
