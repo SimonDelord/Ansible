@@ -8,8 +8,8 @@
          api_key: sha256~w035QrYq-SRKvzz5fkfYq1YAHyEZEH0kmDbvPS4Zj4k
          host: https://api.df2jcu0i.westeurope.aroapp.io:6443
          state: patched
-         kind: Pod
-         name: router-melbourne-54df4f4f66-8vwdm
+         kind: Namespace
+         name: simon-test-3
          definition:
            metadata:
              labels: 
