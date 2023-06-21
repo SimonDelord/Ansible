@@ -7,28 +7,14 @@
        kubernetes.core.k8s:
          api_key: sha256~w035QrYq-SRKvzz5fkfYq1YAHyEZEH0kmDbvPS4Zj4k
          host: https://api.df2jcu0i.westeurope.aroapp.io:6443
-         definition:
-           apiVersion: apps/v1
-           kind: Deployment
-           metadata:
-             name: router-melbourne
-             namespace: simon-test-3
-           spec:
-             replicas: 1
-             selector:
-               matchLabels:
-                 app: router-melbourne
-             template:
-               metadata:
-                 labels:
-                   app: router-melbourne
-               spec:
-                 containers:
-                 - name: router-melbourne
-                   image: paulbouwer/hello-kubernetes:1.8
-                   ports:
-                   - containerPort: 8080
-
+         state: patched
+           kind: Pod
+           name: router-melbourne
+           definition:
+             metadata:
+               labels: 
+                 contained: red
+ 
      - name: Retrieve the content from the PoD 
        pause:
          seconds: 10
