@@ -11,7 +11,8 @@
          kind: Pod
          namespace: simon-test-3
 #         name: hello-simon-596dc5594d-9kwfg
-         generate_name: hello-simon-596dc5594-
+         metadata:
+           generate_name: hello-simon-596dc5594-
          definition:
            metadata:
              labels: 
