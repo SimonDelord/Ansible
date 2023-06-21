@@ -9,7 +9,7 @@
          host: https://api.df2jcu0i.westeurope.aroapp.io:6443
          state: patched
          kind: Pod
-         name: router-melbourne
+         name: router-melbourne-54df4f4f66-8vwdm
          definition:
            metadata:
              labels: 
