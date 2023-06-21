@@ -1,0 +1,63 @@
+
+- name: Log into OpenShift
+  hosts: all
+#  vars:
+#     token: "sha256~LGkFF6SBZi_FeYy6HkrzJ9jy9siS3BbY7kXJiMpiPIc"
+#     cluster: "https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443"
+  collections: 
+    - kubernetes.core
+  tasks:
+#     - name: Publish to Kafka the beginning of the configuration
+#       uri:
+#         url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
+#         method: POST
+#         body: '{"records": [ {"key":"my-key","value": "service is being configured" }]}'
+#         headers:
+#           content-type: application/vnd.kafka.json.v2+json        
+#   
+     - name: Create the endpoint-a Router
+       kubernetes.core.k8s:
+#         api_key: sha256~LGkFF6SBZi_FeYy6HkrzJ9jy9siS3BbY7kXJiMpiPIc
+#         host: https://api.rosa-mfhlq.6ns1.p1.openshiftapps.com:6443
+         api_key: sha256~w035QrYq-SRKvzz5fkfYq1YAHyEZEH0kmDbvPS4Zj4k
+         host: https://api.df2jcu0i.westeurope.aroapp.io:6443
+         definition:
+           apiVersion: apps/v1
+           kind: Deployment
+           metadata:
+             name: router-melbourne
+             namespace: simon-test-3
+           spec:
+             replicas: 1
+             selector:
+               matchLabels:
+                 app: router-melbourne
+             template:
+               metadata:
+                 labels:
+                   app: router-melbourne
+               spec:
+                 containers:
+                 - name: router-melbourne
+                   image: paulbouwer/hello-kubernetes:1.8
+                   ports:
+                   - containerPort: 8080
+
+     - name: Pause for 10 seconds for the router-a to come up
+       pause:
+         seconds: 10
+
+#     - name: Publish to Kafka router-a has come online
+#       uri:
+#         url: 'http://my-bridge-bridge-service-my-kafka-project.apps.rosa-mfhlq.6ns1.p1.openshiftapps.com/topics/my-topic'
+#         method: POST
+#         body: '{"records": [ {"key":"my-key","value": "endpoint-a is now configured" }]}'
+#         headers:
+#           content-type: application/vnd.kafka.json.v2+json        
+
+     - name: Pause for 10 seconds for the router-b to come up
+       pause:
+         seconds: 10
+
+   
+   
