@@ -10,9 +10,9 @@
          state: patched
          kind: Pod
          namespace: simon-test-3
-#         name: hello-simon-596dc5594d-hhw84
-         label_selectors:
-           - app = hello-simon
+         name: hello-simon-596dc5594d-hhw84
+#         label_selectors:
+#           - app = hello-simon
          definition:
            metadata:
              labels: 
