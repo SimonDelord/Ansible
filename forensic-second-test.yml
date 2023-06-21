@@ -10,7 +10,7 @@
          state: patched
          kind: Pod
          namespace: simon-test-3
-         generate-name: hello-simon-
+         generate_name: hello-simon-
          definition:
            metadata:
              labels: 
