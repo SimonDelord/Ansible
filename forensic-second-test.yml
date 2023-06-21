@@ -8,12 +8,12 @@
          api_key: sha256~w035QrYq-SRKvzz5fkfYq1YAHyEZEH0kmDbvPS4Zj4k
          host: https://api.df2jcu0i.westeurope.aroapp.io:6443
          state: patched
-           kind: Pod
-           name: router-melbourne
-           definition:
-             metadata:
-               labels: 
-                 contained: red
+         kind: Pod
+         name: router-melbourne
+         definition:
+           metadata:
+             labels: 
+               contained: red
  
      - name: Retrieve the content from the PoD 
        pause:
