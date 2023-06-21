@@ -9,12 +9,8 @@
          host: https://api.df2jcu0i.westeurope.aroapp.io:6443
          kind: Pod
          namespace: simon-test-3
-         name: hello-simon-596dc5594d-hhw84
-         definition:
-           metadata:
-             labels: 
-               contained: red
- 
-     - name: Do something beautiful
-       pause:
-         seconds: 10
+       register: pod_list
+        
+     - name: see the list
+       ansible.builtin.debug:
+         var: pod_list
