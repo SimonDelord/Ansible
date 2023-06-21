@@ -10,7 +10,7 @@
          state: patched
          kind: Pod
          namespace: simon-test-3
-         name: router-melbourne-
+         name: hello-simon
          definition:
            metadata:
              labels: 
