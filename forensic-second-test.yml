@@ -10,7 +10,7 @@
          state: patched
          kind: Pod
          namespace: simon-test-3
-         name: router-melbourne-54df4f4f66-8vwdm
+         name: router-melbourne-699b4887f-lbg47
          definition:
            metadata:
              labels: 
