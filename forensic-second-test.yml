@@ -10,7 +10,7 @@
          state: patched
          kind: Pod
          namespace: simon-test-3
-         name: hello-simon
+         name: hello-simon-596dc5594d-v8q5m
          definition:
            metadata:
              labels: 
