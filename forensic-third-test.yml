@@ -11,9 +11,9 @@
          namespace: simon-test-3
        register: pod_list
         
-#     - name: see the list
-#       ansible.builtin.debug:
-#         var: pod_list
+     - name: see the list
+       ansible.builtin.debug:
+         var: pod_list
 
      - name: see the PoD name(s)
        ansible.builtin.debug:
