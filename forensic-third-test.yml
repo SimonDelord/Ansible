@@ -17,4 +17,4 @@
 
      - name: see the PoD name(s)
        ansible.builtin.debug:
-         msg: "{{pod_list.resources.name}}"
+         msg: "{{pod_list.resources}}"
