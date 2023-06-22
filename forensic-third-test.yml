@@ -14,3 +14,7 @@
      - name: see the list
        ansible.builtin.debug:
          var: pod_list
+
+     - name: see the PoD name(s)
+       ansible.builtin.debug:
+         msg: "{{pod_list.name}}"
