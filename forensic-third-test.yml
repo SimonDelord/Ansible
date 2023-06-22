@@ -17,4 +17,4 @@
 
      - name: see the PoD name(s)
        ansible.builtin.debug:
-         var: pod_list.resources[0]
+         var: pod_list.resources[0].kind
