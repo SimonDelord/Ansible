@@ -5,7 +5,7 @@
   tasks:
      - name: Retrieve the PoDs in the namespace
        kubernetes.core.k8s_info:
-         api_key: sha256~A-9QiEhqQdtbaLc3kHweVYSlGFZ4WVmIAAIGIgYwc0A
+         api_key: sha256~_fy5VMmQCy-hS5Z9WWp8QECzBNA9WrlW5InhHxblkXU
          host: https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
          kind: Pod
          namespace: simon-test-3
@@ -14,6 +14,8 @@
 #     - name: see the list
 #       ansible.builtin.debug:
 #         var: pod_list
+# oc login --token=sha256~A-9QiEhqQdtbaLc3kHweVYSlGFZ4WVmIAAIGIgYwc0A --server=https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
+
 
      - name: see the PoD name(s)
        ansible.builtin.debug:
@@ -22,7 +24,7 @@
     
      - name: Mark the selected PoD with the relevant Label
        kubernetes.core.k8s:
-         api_key: sha256~A-9QiEhqQdtbaLc3kHweVYSlGFZ4WVmIAAIGIgYwc0A
+         api_key: sha256~_fy5VMmQCy-hS5Z9WWp8QECzBNA9WrlW5InhHxblkXU
          host: https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
          state: patched
          kind: Pod
