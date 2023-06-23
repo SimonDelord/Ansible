@@ -5,8 +5,8 @@
   tasks:
      - name: Retrieve the PoDs in the namespace
        kubernetes.core.k8s_info:
-         api_key: sha256~w035QrYq-SRKvzz5fkfYq1YAHyEZEH0kmDbvPS4Zj4k
-         host: https://api.df2jcu0i.westeurope.aroapp.io:6443
+         api_key: sha256~A-9QiEhqQdtbaLc3kHweVYSlGFZ4WVmIAAIGIgYwc0A
+         host: https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
          kind: Pod
          namespace: simon-test-3
        register: pod_list
@@ -22,8 +22,8 @@
     
      - name: Mark the selected PoD with the relevant Label
        kubernetes.core.k8s:
-         api_key: sha256~w035QrYq-SRKvzz5fkfYq1YAHyEZEH0kmDbvPS4Zj4k
-         host: https://api.df2jcu0i.westeurope.aroapp.io:6443
+         api_key: sha256~A-9QiEhqQdtbaLc3kHweVYSlGFZ4WVmIAAIGIgYwc0A
+         host: https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
          state: patched
          kind: Pod
          namespace: simon-test-3
