@@ -7,6 +7,7 @@
        kubernetes.core.k8s_info:
          api_key: sha256~_fy5VMmQCy-hS5Z9WWp8QECzBNA9WrlW5InhHxblkXU
          host: https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
+         validate_certs: false
          kind: Pod
          namespace: simon-test-3
        register: pod_list
@@ -26,6 +27,7 @@
        kubernetes.core.k8s:
          api_key: sha256~_fy5VMmQCy-hS5Z9WWp8QECzBNA9WrlW5InhHxblkXU
          host: https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
+         validate_certs: false
          state: patched
          kind: Pod
          namespace: simon-test-3
