@@ -1,0 +1,40 @@
+- name: Initiate Forensic activities on target PoD
+  hosts: all
+  collections: 
+    - kubernetes.core
+  tasks:
+     - name: Retrieve the PoDs in the namespace
+       kubernetes.core.k8s_info:
+         api_key: sha256~79lGnACvZIFlsiRR_Dzf8qFg9UfmM_mPs9bRmNzD6-I
+         host: https://api.rosa-68nm4.tcvj.p1.openshiftapps.com:6443
+         validate_certs: false
+         kind: Deployment
+         namespace: simon-test
+       register: deployment_list
+        
+#     - name: see the list
+#       ansible.builtin.debug:
+#         var: pod_list
+# oc login --token=sha256~A-9QiEhqQdtbaLc3kHweVYSlGFZ4WVmIAAIGIgYwc0A --server=https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
+
+
+     - name: see the deployment name(s)
+       ansible.builtin.debug:
+         var: deployment_list.resources[0].metadata.name
+
+    
+#     - name: Mark the selected PoD with the relevant Label
+#       kubernetes.core.k8s:
+#         api_key: sha256~_fy5VMmQCy-hS5Z9WWp8QECzBNA9WrlW5InhHxblkXU
+#         host: https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
+#         validate_certs: false
+#         state: patched
+#         kind: Pod
+#         namespace: simon-test-3
+#         name: "{{ pod_list.resources[0].metadata.name }}"
+#         label_selectors:
+#           - app = hello-simon
+#         definition:
+#           metadata:
+#             labels: 
+#               contained: red
