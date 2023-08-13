@@ -11,24 +11,19 @@
          kind: Deployment
          namespace: app-modernisation
        register: deployment_list
-        
-#     - name: see the list
-#       ansible.builtin.debug:
-#         var: pod_list
-# oc login --token=sha256~A-9QiEhqQdtbaLc3kHweVYSlGFZ4WVmIAAIGIgYwc0A --server=https://api.simon-aws.hbbq.p1.openshiftapps.com:6443
-
 
      - name: see the deployment name(s)
        ansible.builtin.debug:
+         var: deployment_list.resources[0].metadata.name
          var: deployment_list.resources[1].metadata.name
 
     
-     - name: Kill the deployment
-       kubernetes.core.k8s:
-         api_key: sha256~ZvqajkD5v_PoPpjID31d2IWXTDt0R5kGR2qUNnQxWCk
-         host: https://api.third-cluster.sandbox2139.opentlc.com:6443
-         validate_certs: false
-         state: absent
-         kind: Deployment
-         namespace: guestbook
-         name: "{{ deployment_list.resources[1].metadata.name }}"
+#     - name: Kill the deployment
+#       kubernetes.core.k8s:
+#         api_key: sha256~ZvqajkD5v_PoPpjID31d2IWXTDt0R5kGR2qUNnQxWCk
+#         host: https://api.third-cluster.sandbox2139.opentlc.com:6443
+#         validate_certs: false
+#         state: absent
+#         kind: Deployment
+#         namespace: app-modernisation
+#         name: "{{ deployment_list.resources[1].metadata.name }}"
