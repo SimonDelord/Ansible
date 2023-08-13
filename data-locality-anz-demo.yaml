@@ -27,4 +27,4 @@
          state: absent
          kind: Deployment
          namespace: app-modernisation
-         name: "{{ deployment_list.resources[1].metadata.name }}"
+         name: "{{ deployment_list.resources[2].metadata.name }}"
