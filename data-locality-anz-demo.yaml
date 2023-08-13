@@ -10,13 +10,13 @@
          validate_certs: false
          kind: Deployment
          namespace: app-modernisation
-         label_selectors:
-           - data = local
+#         label_selectors:
+#           - data = local
        register: deployment_list
 
      - name: see the deployment name(s)
        ansible.builtin.debug:
-         var: deployment_list.resources[1].metadata.name
+         var: deployment_list.resources[2].metadata.name
 
     
      - name: Kill the deployment
