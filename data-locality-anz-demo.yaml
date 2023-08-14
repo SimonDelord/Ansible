@@ -5,7 +5,7 @@
   tasks:
      - name: Retrieve the deployments in the namespace
        kubernetes.core.k8s_info:
-         api_key: sha256~ZvqajkD5v_PoPpjID31d2IWXTDt0R5kGR2qUNnQxWCk
+         api_key: sha256~uuPMOy0mBdHpNEWRapHsxPEoJhB713PZia1XwFpVycM
          host: https://api.third-cluster.sandbox2139.opentlc.com:6443
          validate_certs: false
          kind: Deployment
@@ -21,7 +21,7 @@
     
      - name: Kill the deployment
        kubernetes.core.k8s:
-         api_key: sha256~ZvqajkD5v_PoPpjID31d2IWXTDt0R5kGR2qUNnQxWCk
+         api_key: sha256~uuPMOy0mBdHpNEWRapHsxPEoJhB713PZia1XwFpVycM
          host: https://api.third-cluster.sandbox2139.opentlc.com:6443
          validate_certs: false
          state: absent
