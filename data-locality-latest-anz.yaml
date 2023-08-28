@@ -1,0 +1,30 @@
+- name: Stops K8 objects from being deployed on targeted clusters
+  hosts: all
+  collections: 
+    - kubernetes.core
+  tasks:
+     - name: Retrieve the deployments in the namespace
+       kubernetes.core.k8s_info:
+         api_key: sha256~hwjYqXTAhOfUgWXoNAm8tygyjyr3aj4A9RaiIqjBiq8
+         host: https://api.second-cluster.sandbox2139.opentlc.com:6443
+         validate_certs: false
+         kind: Deployment
+         namespace: app-modernisation
+         label_selectors:
+           - data = local
+       register: deployment_list
+
+     - name: see the deployment name(s)
+       ansible.builtin.debug:
+         var: deployment_list.resources[0].metadata.name
+
+    
+     - name: Kill the deployment
+       kubernetes.core.k8s:
+         api_key: sha256~hwjYqXTAhOfUgWXoNAm8tygyjyr3aj4A9RaiIqjBiq8
+         host: https://api.second-cluster.sandbox2139.opentlc.com:6443
+         validate_certs: false
+         state: absent
+         kind: Deployment
+         namespace: app-modernisation
+         name: "{{ deployment_list.resources[0].metadata.name }}"
