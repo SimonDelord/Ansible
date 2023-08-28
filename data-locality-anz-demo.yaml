@@ -11,7 +11,7 @@
          kind: Deployment
          namespace: app-modernisation
          label_selectors:
-           - data = local
+           - data = critical
        register: deployment_list
 
      - name: see the deployment name(s)
