@@ -14,5 +14,5 @@
          validate_certs: false
          state: absent
          kind: Deployment
-         namespace: "{{ ansible_eda.body.namespace }}"
-         name: "{{ ansible_eda.body.depoyment }}"
+         namespace: "{{ ansible_eda.event.body.namespace }}"
+         name: "{{ ansible_eda.event.body.depoyment }}"
