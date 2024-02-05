@@ -10,4 +10,5 @@
          validate_certs: false
          state: absent
          kind: Deployment
-         namespace: simon-test    
+         namespace: simon-test
+         name: hello-world
