@@ -1,0 +1,13 @@
+- name: Scales the deployment down to 0
+  hosts: all
+  collections: 
+    - kubernetes.core
+  tasks:
+     - name: Scale down the deployment to 0
+       kubernetes.core.k8s_info:
+         api_key: sha256~JOpgQTXAEnZCBPe8fHLtKEjAHHRYckLFAJN5NjgNPn0
+         host: https://api.rosa-f54xw.wvqh.p1.openshiftapps.com:6443
+         validate_certs: false
+         state: absent
+         kind: Deployment
+         namespace: simon-test    
