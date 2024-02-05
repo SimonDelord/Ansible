@@ -3,6 +3,10 @@
   collections: 
     - kubernetes.core
   tasks:
+     - name: debug the variables
+       ansible.builtin.debug:
+         var: ansible_eda
+         
      - name: Scale down the deployment to 0
        kubernetes.core.k8s:
          api_key: sha256~JOpgQTXAEnZCBPe8fHLtKEjAHHRYckLFAJN5NjgNPn0
@@ -10,5 +14,5 @@
          validate_certs: false
          state: absent
          kind: Deployment
-         namespace: simon-test
-         name: hello-simon
+         namespace: "{{ ansible_eda.body.namespace }}"
+         name: "{{ ansible_eda.body.depoyment }}"
