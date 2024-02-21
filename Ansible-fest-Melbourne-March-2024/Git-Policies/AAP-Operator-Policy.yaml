@@ -1,5 +1,5 @@
 # This policy verifies the installation of the official & supported version of
-# the Advanced Cluster Security Operator on the managed clusters.
+# the Ansible Automation Platform Operator on the managed clusters.
 #
 # If set to "enforce" it'll install the operator.
 #
