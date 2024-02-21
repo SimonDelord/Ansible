@@ -89,9 +89,12 @@ kind: PlacementRule
 metadata:
   name: placement-policy-acs-operator
 spec:
-  clusterConditions:
-    - status: "True"
-      type: ManagedClusterConditionAvailable
-  clusterSelector:
-    matchExpressions:
-      - {key: vendor, operator: In, values: ["OpenShift"]}
+  predicates:
+    - requiredClusterSelector:
+        labelSelector:
+          matchExpressions:
+            - key: 'vendor'
+              operator: In
+              values: ['OpenShift']
+  clusterSets:
+    - default
