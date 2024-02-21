@@ -3,6 +3,7 @@
 #
 # If set to "enforce" it'll install the operator.
 #
+---
 apiVersion: policy.open-cluster-management.io/v1
 kind: Policy
 metadata:
