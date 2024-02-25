@@ -9,7 +9,7 @@
          
      - name: Scale down the deployment to 0
        kubernetes.core.k8s:
-         api_key: sha256~IoD-SLPVNORLdm-8PWOhxMtpi1LWE3wgxaPT-kIIr5U
+         api_key: sha256~y6X8gabTtMi4vAYhKzC_jzv2AAnEBM1QbtmSRapHhfM
          host: https://api.rosa-kpmjr.85x6.p1.openshiftapps.com:6443
          validate_certs: false
          state: absent
