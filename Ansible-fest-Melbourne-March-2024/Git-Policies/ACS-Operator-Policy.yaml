@@ -70,28 +70,28 @@ spec:
                   name: rhacs-operator
                   source: redhat-operators
                   sourceNamespace: openshift-marketplace
----
-apiVersion: policy.open-cluster-management.io/v1
-kind: PlacementBinding
-metadata:
-  name: binding-policy-acs-operator
-placementRef:
-  name: placement-policy-acs-operator
-  kind: PlacementRule
-  apiGroup: apps.open-cluster-management.io
-subjects:
-  - name: policy-acs-operator
-    kind: Policy
-    apiGroup: policy.open-cluster-management.io
----
-apiVersion: apps.open-cluster-management.io/v1
-kind: PlacementRule
-metadata:
-  name: placement-policy-acs-operator
-spec:
-  clusterConditions:
-    - status: "True"
-      type: ManagedClusterConditionAvailable
-  clusterSelector:
-    matchExpressions:
-      - {key: name, name: In, values: ["local-cluster"]}
+#---
+#apiVersion: policy.open-cluster-management.io/v1
+#kind: PlacementBinding
+#metadata:
+#  name: binding-policy-acs-operator
+#placementRef:
+#  name: placement-policy-acs-operator
+#  kind: PlacementRule
+#  apiGroup: apps.open-cluster-management.io
+#subjects:
+#  - name: policy-acs-operator
+#    kind: Policy
+#    apiGroup: policy.open-cluster-management.io
+#---
+#apiVersion: apps.open-cluster-management.io/v1
+#kind: PlacementRule
+#metadata:
+#  name: placement-policy-acs-operator
+#spec:
+#  clusterConditions:
+#    - status: "True"
+#      type: ManagedClusterConditionAvailable
+#  clusterSelector:
+#    matchExpressions:
+#      - {key: name, name: In, values: ["local-cluster"]}
