@@ -94,4 +94,4 @@ spec:
       type: ManagedClusterConditionAvailable
   clusterSelector:
     matchExpressions:
-      - {key: vendor, name: In, values: ["local-cluster"]}
+      - {key: name, name: In, values: ["local-cluster"]}
